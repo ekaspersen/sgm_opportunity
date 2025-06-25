@@ -1,571 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sagemaster | An Ecosystem For Growth</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AI Driven Opportunity Presentation</title>
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
+        />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+        <!-- Google Fonts: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
 
-    <style>
-      * {
-        scroll-behavior: smooth;
-      }
-      /* Custom styles to implement the theme */
-      body {
-        background-color: #0a0a0a; /* Slightly off-black for depth */
-        color: #e5e7eb; /* Light gray for readability */
-        font-family: "Inter", sans-serif;
-        scroll-behavior: smooth;
-        position: relative;
-        overflow-x: hidden;
-      }
+        <style>
+            * {
+                scroll-behavior: smooth;
+            }
+            /* Custom styles to implement the theme */
+            body {
+                background-color: #0a0a0a; /* Slightly off-black for depth */
+                color: #e5e7eb; /* Light gray for readability */
+                font-family: "Inter", sans-serif;
+                scroll-behavior: smooth;
+                position: relative;
+                overflow-x: hidden;
+            }
 
-      .content-wrapper {
-        position: relative;
-        z-index: 10;
-      }
+            .content-wrapper {
+                position: relative;
+                z-index: 10;
+            }
 
-      /* Gradient text effect */
-      .gradient-text {
-        background: linear-gradient(90deg, #33dbb7, #8b5cf6, #22d3ee);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-      }
+            /* Gradient text effect */
+            .gradient-text {
+                background: linear-gradient(90deg, #33dbb7, #8b5cf6, #22d3ee);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
 
-      /* Glowing button effect - with less prominent green */
-      .cta-button {
-        background: linear-gradient(
-          110deg,
-          #8b5cf6 30%,
-          #22d3ee 60%,
-          #34d399 95%
-        );
-        transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(139, 92, 246, 0.4),
-          0 0 20px rgba(34, 211, 238, 0.3);
-      }
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 0 25px rgba(139, 92, 246, 0.6),
-          0 0 35px rgba(34, 211, 238, 0.5);
-      }
+            /* Glowing button effect - with less prominent green */
+            .cta-button {
+                background: linear-gradient(
+                    110deg,
+                    #8b5cf6 30%,
+                    #22d3ee 60%,
+                    #34d399 95%
+                );
+                transition: all 0.3s ease;
+                box-shadow: 0 0 15px rgba(139, 92, 246, 0.4),
+                    0 0 20px rgba(34, 211, 238, 0.3);
+            }
+            .cta-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 0 25px rgba(139, 92, 246, 0.6),
+                    0 0 35px rgba(34, 211, 238, 0.5);
+            }
 
-      /* Section dividers for a techy feel */
-      .section-divider {
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          rgba(52, 211, 153, 0) 0%,
-          rgba(139, 92, 246, 0.5) 50%,
-          rgba(34, 211, 238, 0) 100%
-        );
-        margin: 3rem auto;
-        width: 80%;
-        max-width: 600px;
-      }
+            /* Section dividers for a techy feel */
+            .section-divider {
+                height: 2px;
+                background: linear-gradient(
+                    90deg,
+                    rgba(52, 211, 153, 0) 0%,
+                    rgba(139, 92, 246, 0.5) 50%,
+                    rgba(34, 211, 238, 0) 100%
+                );
+                margin: 3rem auto;
+                width: 80%;
+                max-width: 600px;
+            }
 
-      /* Responsive video container */
-      .video-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        background: #000;
-        border-radius: 1rem;
-        box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
-      }
-      .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-      }
+            /* Responsive video container */
+            .video-container {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                height: 0;
+                overflow: hidden;
+                max-width: 100%;
+                background: #000;
+                border-radius: 1rem;
+                box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+            }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
 
-      /* Background decorative elements */
-      .blob {
-        position: absolute;
-        z-index: 1;
-        filter: blur(100px);
-        will-change: transform;
-        border-radius: 50%;
-      }
-      .bg-herobackground {
-        background-image: url("./uploads/hero-bg.jpg");
-        background-size: cover;
-        background-position: center;
-      }
+            /* Background decorative elements */
+            .blob {
+                position: absolute;
+                z-index: 1;
+                filter: blur(100px);
+                will-change: transform;
+                border-radius: 50%;
+            }
+            .bg-herobackground {
+                background-image: url("./uploads/hero-bg.jpg");
+                background-size: cover;
+                background-position: center;
+            }
 
-      /* Scroll Animation Styles */
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.6s ease-out;
-      }
-      .animate-on-scroll.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
-  </head>
-  <body class="antialiased">
-    <!-- Background Blobs -->
-    <div
-      class="blob w-96 h-96 bg-purple-600/10 top-0 left-0 -translate-x-1/3 -translate-y-1/3"
-    ></div>
-
-    <div
-      class="blob w-[500px] h-[500px] bg-green-500/10 top-1/4 right-0 translate-x-1/2 -translate-y-1/2"
-    ></div>
-    <div
-      class="blob w-[600px] h-[600px] bg-purple-600/10 bottom-1/4 left-0 -translate-x-1/2 translate-y-1/2"
-    ></div>
-
-    <div class="content-wrapper bg-herobackground">
-      <!-- Hero Section -->
-      <div
-        class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-4"
-      >
-        <div class="relative z-10">
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-4 animate-on-scroll"
-          >
-            Out of the ordinary.
-          </h1>
-          <h2
-            class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter gradient-text animate-on-scroll"
-            style="transition-delay: 150ms"
-          >
-            An ecosystem for Growth.
-          </h2>
-          <p
-            class="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-gray-200 animate-on-scroll"
-            style="transition-delay: 300ms"
-          >
-            Discover how Sagemaster's powerful AI makes advanced trading
-            accessible for everyone, from beginner to pro, all within a
-            world-class ecosystem of community and mentorship.
-          </p>
-          <div class="mt-12 animate-on-scroll" style="transition-delay: 450ms">
-            <a
-              href="#intro"
-              class="cta-button text-black font-bold py-3 px-8 rounded-full text-lg"
+            /* Scroll Animation Styles */
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+            }
+            .animate-on-scroll.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+    <body class="antialiased overflow-x-hidden">
+        <div class="content-wrapper bg-herobackground">
+            <!-- Hero Section -->
+            <div
+                class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-4"
             >
-              Start Your Journey
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Intro Section -->
-      <div
-        id="intro"
-        class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll"
-      >
-        <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
-          The Path to Your Potential Starts Here.
-        </h2>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
-          The world of trading often feels exclusive, reserved for experts who
-          understand its complexity. What if
-          <span class="font-semibold">Artificial Intelligence</span> could level
-          the playing field? <br /><br />
-          We believe everyone deserves access to powerful tools. That's why we
-          built this ecosystem—to guide you, whether you're making your first
-          trade or your thousandth.
-        </p>
-      </div>
-
-      <div class="section-divider animate-on-scroll"></div>
-
-      <!-- The Product (Sagemaster) Section -->
-      <div
-        id="product"
-        class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll"
-      >
-        <h2
-          class="text-3xl md:text-5xl font-bold tracking-tighter gradient-text"
-        >
-          Your AI Co-Pilot for Trading.
-        </h2>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400 mb-12">
-          Sagemaster is your intelligent co-pilot, using
-          <span class="font-semibold">AI</span> to simplify the complex world of
-          trading. For beginners, it turns confusing charts into clear,
-          actionable insights. For pros, it automates sophisticated strategies,
-          freeing you up to focus on the bigger picture. It's the technological
-          edge that makes smart trading accessible to all.
-        </p>
-        <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/nkQd30fTLdg"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-
-      <!-- Safety Section -->
-      <div class="py-20 px-4 max-w-7xl mx-auto animate-on-scroll">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
-            Safety First. Always.
-          </h2>
-          <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">
-            No money is ever invested directly into Sagemaster.<br />
-
-            Your capital and security are paramount. Our platform is built on a
-            foundation of trust and transparency, ensuring you are always in
-            control.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <!-- Safety Pillar 1 -->
-          <div
-            class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
-          >
-            <div>
-              <svg
-                class="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                ></path>
-              </svg>
+                <div class="relative z-10">
+                    <h1
+                        class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-4 animate-on-scroll"
+                    >
+                        Out of the ordinary.
+                    </h1>
+                    <h2
+                        class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter gradient-text animate-on-scroll"
+                        style="transition-delay: 150ms"
+                    >
+                        An ecosystem for Growth.
+                    </h2>
+                    <p
+                        class="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-gray-200 animate-on-scroll"
+                        style="transition-delay: 300ms"
+                    >
+                        Discover how Sagemaster's powerful AI makes advanced
+                        trading accessible for everyone, from beginner to pro,
+                        all within a world-class ecosystem of community and
+                        mentorship.
+                    </p>
+                    <div
+                        class="mt-12 animate-on-scroll"
+                        style="transition-delay: 450ms"
+                    >
+                        <a
+                            href="#intro"
+                            class="cta-button text-black font-bold py-3 px-8 rounded-full text-lg"
+                        >
+                            Start Your Journey
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Non-Custodial by Design
-              </h3>
-              <p class="text-gray-400">
-                Sagemaster never holds or stores your assets. Our AI provides
-                trade insights; your funds remain securely on your own trusted
-                exchange account, where they belong.
-              </p>
-            </div>
-          </div>
 
-          <!-- Safety Pillar 2 -->
-          <div
-            class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
-          >
-            <div>
-              <svg
-                class="w-8 h-8 text-purple-500 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H5v-2H3v-2H1v-4a6 6 0 017.743-5.743z"
-                ></path>
-              </svg>
+            <!-- Intro Section -->
+            <div
+                id="intro"
+                class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll"
+            >
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
+                    The Path to Your Potential Starts Here.
+                </h2>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
+                    The world of trading often feels exclusive, reserved for
+                    experts who understand its complexity. What if
+                    <span class="font-semibold">Artificial Intelligence</span>
+                    could level the playing field? <br /><br />
+                    We believe everyone deserves access to powerful tools.
+                    That's why we built this ecosystem—to guide you, whether
+                    you're making your first trade or your thousandth.
+                </p>
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Secure API Connection
-              </h3>
-              <p class="text-gray-400">
-                You connect your exchange via a secure API key with withdrawal
-                permissions disabled. This allows Sagemaster to execute trades
-                on your behalf but makes it impossible to move your money.
-              </p>
-            </div>
-          </div>
 
-          <!-- Safety Pillar 3 -->
-          <div
-            class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
-          >
-            <div>
-              <svg
-                class="w-8 h-8 text-green-500 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Trusted Exchanges Only
-              </h3>
-              <p class="text-gray-400">
-                We exclusively support the industry's safest and most reputable
-                exchanges, including leaders like Binance, KuCoin, Bybit, and
-                others, to ensure the highest level of security for our users.
-              </p>
-            </div>
-          </div>
+            <div class="section-divider animate-on-scroll"></div>
 
-          <!-- Safety Pillar 4 -->
-          <div
-            class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
-          >
-            <div>
-              <svg
-                class="w-8 h-8 text-gray-400 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z"
-                ></path>
-              </svg>
+            <!-- The Product (Sagemaster) Section -->
+            <div
+                id="product"
+                class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll"
+            >
+                <h2
+                    class="text-3xl md:text-5xl font-bold tracking-tighter gradient-text"
+                >
+                    Your AI Co-Pilot for Trading.
+                </h2>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400 mb-12">
+                    Sagemaster is your intelligent co-pilot, using
+                    <span class="font-semibold">AI</span> to simplify the
+                    complex world of trading. For beginners, it turns confusing
+                    charts into clear, actionable insights. For pros, it
+                    automates sophisticated strategies, freeing you up to focus
+                    on the bigger picture. It's the technological edge that
+                    makes smart trading accessible to all.
+                </p>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/nkQd30fTLdg"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2">
-                You Give the Orders
-              </h3>
-              <p class="text-gray-400">
-                Sagemaster is a provider of AI-driven trade ideas and
-                strategies. You choose which strategies to run and how much
-                capital to allocate on your exchange. You are always the one in
-                charge.
-              </p>
+
+            <!-- Safety Section -->
+            <div class="py-20 px-4 max-w-7xl mx-auto animate-on-scroll">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
+                        Safety First. Always.
+                    </h2>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">
+                        No money is ever invested directly into Sagemaster.<br />
+
+                        Your capital and security are paramount. Our platform is
+                        built on a foundation of trust and transparency,
+                        ensuring you are always in control.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+                >
+                    <!-- Safety Pillar 1 -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
+                    >
+                        <div>
+                            <svg
+                                class="w-8 h-8 text-cyan-400 flex-shrink-0 mt-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Non-Custodial by Design
+                            </h3>
+                            <p class="text-gray-400">
+                                Sagemaster never holds or stores your assets.
+                                Our AI provides trade insights; your funds
+                                remain securely on your own trusted exchange
+                                account, where they belong.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Safety Pillar 2 -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
+                    >
+                        <div>
+                            <svg
+                                class="w-8 h-8 text-purple-500 flex-shrink-0 mt-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H5v-2H3v-2H1v-4a6 6 0 017.743-5.743z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Secure API Connection
+                            </h3>
+                            <p class="text-gray-400">
+                                You connect your exchange via a secure API key
+                                with withdrawal permissions disabled. This
+                                allows Sagemaster to execute trades on your
+                                behalf but makes it impossible to move your
+                                money.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Safety Pillar 3 -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
+                    >
+                        <div>
+                            <svg
+                                class="w-8 h-8 text-green-500 flex-shrink-0 mt-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Trusted Exchanges Only
+                            </h3>
+                            <p class="text-gray-400">
+                                We exclusively support the industry's safest and
+                                most reputable exchanges, including leaders like
+                                Binance, KuCoin, Bybit, and others, to ensure
+                                the highest level of security for our users.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Safety Pillar 4 -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50 flex items-start space-x-4"
+                    >
+                        <div>
+                            <svg
+                                class="w-8 h-8 text-gray-400 flex-shrink-0 mt-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                You Give the Orders
+                            </h3>
+                            <p class="text-gray-400">
+                                Sagemaster is a provider of AI-driven trade
+                                ideas and strategies. You choose which
+                                strategies to run and how much capital to
+                                allocate on your exchange. You are always the
+                                one in charge.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="section-divider animate-on-scroll"></div>
+
+            <!-- The Support Ecosystem Section -->
+            <div class="py-20 px-4 max-w-7xl mx-auto animate-on-scroll">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
+                        You Are Never Alone on the Journey.
+                    </h2>
+                    <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
+                        Success is more than just a great product. With us, you
+                        get a complete ecosystem designed for your growth.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center"
+                >
+                    <!-- Pillar 1: Learn from the Best -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50"
+                    >
+                        <h3 class="text-2xl font-bold gradient-text mb-4">
+                            Learn from the Best.
+                        </h3>
+                        <p class="text-gray-400">
+                            Through our WOW (World of Wisdom) platform, you gain
+                            access to training from some of the world's most
+                            skilled traders and business builders. This isn't
+                            just theory; it's practical knowledge you can apply
+                            from day one.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2: A Community That Lifts You Up -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50"
+                    >
+                        <h3 class="text-2xl font-bold gradient-text mb-4">
+                            A Community That Lifts You Up.
+                        </h3>
+                        <p class="text-gray-400">
+                            The safest choice you can make is to join a
+                            community that wants you to succeed. From day one,
+                            you'll join private groups where you can ask
+                            questions, get help, and celebrate wins. We rise by
+                            lifting others.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3: Guidance from Proven Leaders -->
+                    <div
+                        class="bg-black/20 p-8 rounded-2xl border border-gray-800/50"
+                    >
+                        <h3 class="text-2xl font-bold gradient-text mb-4">
+                            Guidance from Proven Leaders.
+                        </h3>
+                        <p class="text-gray-400">
+                            What if you could get direct guidance from people
+                            who have already achieved the success you dream of?
+                            Through weekly community calls and direct support,
+                            our top leaders provide the insights and clear path
+                            you need to follow.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- WOW Platform Video -->
+                <div class="mt-20 text-center">
+                    <p
+                        class="mt-6 max-w-3xl mx-auto text-lg text-gray-400 mb-12"
+                    >
+                        Learn how
+                        <span class="gradient-text font-bold"
+                            >WOW - World of Wisdom</span
+                        >
+                        gives you the knowledge you need.
+                    </p>
+                    <div class="video-container max-w-3xl mx-auto">
+                        <iframe
+                            src="https://www.youtube.com/embed/W87zxdppHfc?si=asBG445nQhvID83D"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <p class="text-lg text-gray-400 mt-12">Only 1 minute</p>
+                </div>
+            </div>
+
+            <div class="section-divider animate-on-scroll"></div>
+
+            <!-- The Opportunity Summary Section -->
+            <div
+                class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll"
+            >
+                <h2 class="text-xl md:text-5xl font-bold tracking-tighter">
+                    AI Technology + Knowledge + Support
+                </h2>
+                <h3
+                    class="mt-2 text-3xl md:text-5xl font-bold tracking-tighter gradient-text"
+                >
+                    Your Blueprint for Success.
+                </h3>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
+                    When you combine a groundbreaking product like Sagemaster,
+                    knowledge from the WOW platform, the security of an active
+                    community, and guidance from successful mentors, you don't
+                    just have a hobby.
+                    <br /><br />
+                    You have a complete business model. An opportunity to build
+                    an income based on real value while developing yourself
+                    every single day.
+                </p>
+            </div>
+
+            <!-- Final Call to Action Section -->
+            <div id="cta" class="py-24 bg-transparent animate-on-scroll">
+                <div class="max-w-4xl mx-auto text-center px-4">
+                    <h2
+                        class="text-4xl md:text-5xl font-bold tracking-tighter gradient-text"
+                    >
+                        Ready for the Next Step?
+                    </h2>
+                    <p class="mt-6 text-lg md:text-xl text-gray-400 mb-8">
+                        If this resonates with you and you're ready to learn
+                        more about becoming part of our community, your path
+                        forward is simple.
+                    </p>
+                    <div class="p-8 rounded-2xl max-w-2xl mx-auto">
+                        <p
+                            class="text-2xl md:text-3xl font-semibold text-white"
+                        >
+                            Contact the person who sent you this link to get
+                            started.
+                        </p>
+                        <p class="mt-4 text-gray-400 text-lg">
+                            They will guide you through the next steps and
+                            answer any questions you have.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="pt-16 pb-8 text-center text-gray-500">
+                <div class="max-w-4xl mx-auto px-6">
+                    <p class="my-6 text-sm text-gray-500">
+                        This website is an independent presentation <br />
+                        created to showcase the opportunity and is not an
+                        official company website.
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        <strong class="text-gray-400 italic"
+                            >Disclaimer:
+                        </strong>
+                        No Investment Advice Provided. Any opinions, chats,
+                        messages, news, research, analyses, prices, or other
+                        information contained herein are provided as general
+                        market information for educational and entertainment
+                        purposes only and do not constitute investment advice.
+                        You acknowledge and agree that you will not rely upon
+                        the information provided herein as a substitute for
+                        extensive independent market research before making your
+                        actual trading decisions. Opinions, market data,
+                        recommendations or any other content are subject to
+                        change at any time without notice. By the time you see
+                        the information provided herein, it might be outdated
+                        therefore, please refer to the latest information or
+                        reach out to customer support. <br /><br />
+                        We do not endorse or recommend any specific broker or
+                        exchange. You have the freedom to select the broker or
+                        exchange of your choice based on your individual
+                        preferences and requirements. Our role does not involve
+                        directing or advising on the selection of financial
+                        service providers.
+                    </p>
+                </div>
+            </footer>
         </div>
-      </div>
 
-      <div class="section-divider animate-on-scroll"></div>
+        <!-- Animation Script -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // --- Intersection Observer for scroll animations ---
+                const scrollElements =
+                    document.querySelectorAll(".animate-on-scroll");
 
-      <!-- The Support Ecosystem Section -->
-      <div class="py-20 px-4 max-w-7xl mx-auto animate-on-scroll">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">
-            You Are Never Alone on the Journey.
-          </h2>
-          <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
-            Success is more than just a great product. With us, you get a
-            complete ecosystem designed for your growth.
-          </p>
-        </div>
+                const elementObserver = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                observer.unobserve(entry.target); // Animate only once
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.1, // Trigger when 10% of the element is visible
+                    }
+                );
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center"
-        >
-          <!-- Pillar 1: Learn from the Best -->
-          <div class="bg-black/20 p-8 rounded-2xl border border-gray-800/50">
-            <h3 class="text-2xl font-bold gradient-text mb-4">
-              Learn from the Best.
-            </h3>
-            <p class="text-gray-400">
-              Through our WOW (World of Wisdom) platform, you gain access to
-              training from some of the world's most skilled traders and
-              business builders. This isn't just theory; it's practical
-              knowledge you can apply from day one.
-            </p>
-          </div>
+                scrollElements.forEach((el) => {
+                    elementObserver.observe(el);
+                });
 
-          <!-- Pillar 2: A Community That Lifts You Up -->
-          <div class="bg-black/20 p-8 rounded-2xl border border-gray-800/50">
-            <h3 class="text-2xl font-bold gradient-text mb-4">
-              A Community That Lifts You Up.
-            </h3>
-            <p class="text-gray-400">
-              The safest choice you can make is to join a community that wants
-              you to succeed. From day one, you'll join private groups where you
-              can ask questions, get help, and celebrate wins. We rise by
-              lifting others.
-            </p>
-          </div>
+                // --- Initial load animation for hero section ---
+                // The first few elements get the 'is-visible' class immediately
+                // to trigger their animation on page load.
+                const heroElements = document.querySelectorAll(
+                    ".hero-section .animate-on-scroll"
+                );
+                const introSection = document.getElementById("intro");
 
-          <!-- Pillar 3: Guidance from Proven Leaders -->
-          <div class="bg-black/20 p-8 rounded-2xl border border-gray-800/50">
-            <h3 class="text-2xl font-bold gradient-text mb-4">
-              Guidance from Proven Leaders.
-            </h3>
-            <p class="text-gray-400">
-              What if you could get direct guidance from people who have already
-              achieved the success you dream of? Through weekly community calls
-              and direct support, our top leaders provide the insights and clear
-              path you need to follow.
-            </p>
-          </div>
-        </div>
+                // A small delay to ensure styles are applied before animating
+                setTimeout(() => {
+                    const heroTitle = document.querySelector(
+                        ".relative.z-10 > h1"
+                    );
+                    const heroSubtitle = document.querySelector(
+                        ".relative.z-10 > h2"
+                    );
+                    const heroParagraph =
+                        document.querySelector(".relative.z-10 > p");
+                    const heroButton = document.querySelector(
+                        ".relative.z-10 .mt-12"
+                    );
 
-        <!-- WOW Platform Video -->
-        <div class="mt-20 text-center">
-          <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400 mb-12">
-            Learn how
-            <span class="gradient-text font-bold">WOW - World of Wisdom</span>
-            gives you the knowledge you need.
-          </p>
-          <div class="video-container max-w-3xl mx-auto">
-            <iframe
-              src="https://www.youtube.com/embed/W87zxdppHfc?si=asBG445nQhvID83D"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <p class="text-lg text-gray-400 mt-12">Only 1 minute</p>
-        </div>
-      </div>
-
-      <div class="section-divider animate-on-scroll"></div>
-
-      <!-- The Opportunity Summary Section -->
-      <div class="py-20 px-4 max-w-5xl mx-auto text-center animate-on-scroll">
-        <h2 class="text-xl md:text-5xl font-bold tracking-tighter">
-          AI Technology + Knowledge + Support
-        </h2>
-        <h3
-          class="mt-2 text-3xl md:text-5xl font-bold tracking-tighter gradient-text"
-        >
-          Your Blueprint for Success.
-        </h3>
-        <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-400">
-          When you combine a groundbreaking product like Sagemaster, knowledge
-          from the WOW platform, the security of an active community, and
-          guidance from successful mentors, you don't just have a hobby.
-          <br /><br />
-          You have a complete business model. An opportunity to build an income
-          based on real value while developing yourself every single day.
-        </p>
-      </div>
-
-      <!-- Final Call to Action Section -->
-      <div id="cta" class="py-24 bg-transparent animate-on-scroll">
-        <div class="max-w-4xl mx-auto text-center px-4">
-          <h2
-            class="text-4xl md:text-5xl font-bold tracking-tighter gradient-text"
-          >
-            Ready for the Next Step?
-          </h2>
-          <p class="mt-6 text-lg md:text-xl text-gray-400 mb-8">
-            If this resonates with you and you're ready to learn more about
-            becoming part of our community, your path forward is simple.
-          </p>
-          <div class="p-8 rounded-2xl max-w-2xl mx-auto">
-            <p class="text-2xl md:text-3xl font-semibold text-white">
-              Contact the person who sent you this link to get started.
-            </p>
-            <p class="mt-4 text-gray-400 text-lg">
-              They will guide you through the next steps and answer any
-              questions you have.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer class="pt-16 pb-8 text-center text-gray-500">
-        <div class="max-w-4xl mx-auto px-6">
-          <p class="my-6 text-sm text-gray-500">
-            This website is an independent presentation <br />
-            created to showcase the opportunity and is not an official company
-            website.
-          </p>
-          <p class="text-xs text-gray-600">
-            <strong class="text-gray-400 italic">Disclaimer: </strong> No
-            Investment Advice Provided. Any opinions, chats, messages, news,
-            research, analyses, prices, or other information contained herein
-            are provided as general market information for educational and
-            entertainment purposes only and do not constitute investment advice.
-            You acknowledge and agree that you will not rely upon the
-            information provided herein as a substitute for extensive
-            independent market research before making your actual trading
-            decisions. Opinions, market data, recommendations or any other
-            content are subject to change at any time without notice. By the
-            time you see the information provided herein, it might be outdated
-            therefore, please refer to the latest information or reach out to
-            customer support. <br /><br />
-            We do not endorse or recommend any specific broker or exchange. You
-            have the freedom to select the broker or exchange of your choice
-            based on your individual preferences and requirements. Our role does
-            not involve directing or advising on the selection of financial
-            service providers.
-          </p>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Animation Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // --- Intersection Observer for scroll animations ---
-        const scrollElements = document.querySelectorAll(".animate-on-scroll");
-
-        const elementObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target); // Animate only once
-              }
+                    if (heroTitle) heroTitle.classList.add("is-visible");
+                    if (heroSubtitle) heroSubtitle.classList.add("is-visible");
+                    if (heroParagraph)
+                        heroParagraph.classList.add("is-visible");
+                    if (heroButton) heroButton.classList.add("is-visible");
+                }, 100);
             });
-          },
-          {
-            threshold: 0.1, // Trigger when 10% of the element is visible
-          }
-        );
-
-        scrollElements.forEach((el) => {
-          elementObserver.observe(el);
-        });
-
-        // --- Initial load animation for hero section ---
-        // The first few elements get the 'is-visible' class immediately
-        // to trigger their animation on page load.
-        const heroElements = document.querySelectorAll(
-          ".hero-section .animate-on-scroll"
-        );
-        const introSection = document.getElementById("intro");
-
-        // A small delay to ensure styles are applied before animating
-        setTimeout(() => {
-          const heroTitle = document.querySelector(".relative.z-10 > h1");
-          const heroSubtitle = document.querySelector(".relative.z-10 > h2");
-          const heroParagraph = document.querySelector(".relative.z-10 > p");
-          const heroButton = document.querySelector(".relative.z-10 .mt-12");
-
-          if (heroTitle) heroTitle.classList.add("is-visible");
-          if (heroSubtitle) heroSubtitle.classList.add("is-visible");
-          if (heroParagraph) heroParagraph.classList.add("is-visible");
-          if (heroButton) heroButton.classList.add("is-visible");
-        }, 100);
-      });
-    </script>
-  </body>
+        </script>
+    </body>
 </html>
